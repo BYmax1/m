@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  if(user)
+     form.well.form-inline.center(method='post', action='/post', style='text-align:\
+     center;')
+       input.span8(type='text', name='post')
+       button.btn.btn-success.btn-sm(type='submit')
+         i.icon-comment.icon-white
+         |  发言
+   each post,i in posts
+       .row
+         .span4
+            h2
+              a(href='#') #{post.userName}
+              |  说
+            p 
+              small #{post.time}
+                 
+            p #{post.post}     
